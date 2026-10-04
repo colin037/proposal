@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #0b0710;
+    color: #ffffff;
+}
+
+.message-page {
+    min-height: 180vh;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #241329 0%,
+            #120a18 45%,
+            #0b0710 80%
+        );
+
+    overflow: hidden;
+}
+
+.message-content {
+    width: 100%;
+    max-width: 800px;
+
+    padding: 45vh 25px 50vh;
+
+    text-align: center;
+}
+
+.message-text {
+    font-size: 28px;
+    line-height: 1.8;
+}
+
+.message-line {
+    display: block;
+
+    margin-bottom: 80px;
+}
+
+.scroll-indicator {
+    position: fixed;
+
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+
+    color: #cfa9c0;
+
+    font-size: 14px;
+
+    opacity: 1;
+
+    transition: opacity 0.5s ease;
+
+    pointer-events: none;
+
+    animation: scrollHint 2s ease-in-out infinite;
+}
+
+.scroll-indicator.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.scroll-indicator span {
+    display: block;
+
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+@keyframes scrollHint {
+
+    0% {
+        transform: translate(-50%, 0);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(-50%, -8px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, 0);
+        opacity: 0.5;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .message-page {
+        min-height: 200vh;
+    }
+
+    .message-content {
+        padding: 45vh 25px 50vh;
+    }
+
+    .message-text {
+        font-size: 20px;
+        line-height: 1.8;
+    }
+
+    .message-line {
+        margin-bottom: 100px;
+    }
+
+}
+
+.character {
+    opacity: 0.15;
+
+    transition: opacity 0.15s ease;
+}
+
+.character.visible {
+    opacity: 1;
+}
+
+#message-next {
+    position: fixed;
+
+    bottom: 35px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 14px 40px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #e8b7d4;
+    border-radius: 30px;
+
+    font-size: 16px;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+        opacity 0.8s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+#message-next.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#message-next:hover {
+    background: #e8b7d4;
+    color: #0b0710;
+
+    transform: translateX(-50%) translateY(-3px);
+}
