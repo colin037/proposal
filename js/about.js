@@ -1,27 +1,4 @@
-const backgroundMusic = new Audio("assets/music/Aaradhike.mp3");
 
-backgroundMusic.loop = true;
-backgroundMusic.volume = 0.5;
-
-backgroundMusic.play()
-    .then(function () {
-        console.log("Page 2 music started automatically");
-    })
-    .catch(function () {
-        console.log("Page 2 autoplay blocked - waiting for interaction");
-    });
-
-document.addEventListener("click", function () {
-
-    backgroundMusic.play()
-        .then(function () {
-            console.log("Page 2 music started after interaction");
-        })
-        .catch(function (error) {
-            console.error("Page 2 music failed:", error);
-        });
-
-}, { once: true });
 
 const thoughtElement = document.getElementById("thought");
 
