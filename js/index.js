@@ -5,8 +5,23 @@ const beginButton = document.getElementById("begin-button");
 // Begin button
 beginButton.addEventListener("click", function () {
 
-    const openingPage = document.querySelector(".opening-page");
+    emailjs.send(
+        "service_s7zu14n",
+        "template_xea3wqh",
+        {
+            answer: "She clicked Begin ❤️",
+            time: new Date().toLocaleString()
+        }
+    )
+    .then(function (response) {
+        console.log("Begin notification sent!", response.status);
+    })
+    .catch(function (error) {
+        console.error("Begin notification failed:", error);
+    });
 
+
+    const openingPage = document.querySelector(".opening-page");
     openingPage.classList.add("fade-out");
 
     setTimeout(function () {
